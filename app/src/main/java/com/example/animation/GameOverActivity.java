@@ -17,8 +17,8 @@ public class GameOverActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         scorelabel = findViewById(R.id.scoreTv);
-        highScoreList = findViewById(R.id.highScoreTv);
-        playerHighScList = findViewById(R.id.playerHighScoreTv);
+        highScoreList = findViewById(R.id.playerHighScoreTv);
+        playerHighScList = findViewById(R.id.highScoreTv);
 
         getPlHighScore = findViewById(R.id.highScorebtn);
         super.onCreate(savedInstanceState);
