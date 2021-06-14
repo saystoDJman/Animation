@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void onResume() {
         super.onResume();
         sensorManager.registerListener(acceleListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);

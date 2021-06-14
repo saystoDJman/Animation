@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ball"
-        android:layout_width="96dp"
-        android:layout_height="97dp"
+        android:layout_width="69dp"
+        android:layout_height="71dp"
         app:srcCompat="@drawable/cricketball"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="1dp" />
@@ -24,4 +24,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hole2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="194dp"
+        android:layout_height="46dp"
+        app:srcCompat="@drawable/wall2"
+        tools:layout_editor_absoluteX="87dp"
+        tools:layout_editor_absoluteY="514dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="246dp"
+        android:layout_height="49dp"
+        app:srcCompat="@drawable/wall2"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="48dp"
+        android:layout_height="201dp"
+        app:srcCompat="@drawable/wall3"
+        tools:layout_editor_absoluteX="87dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="48dp"
+        android:layout_height="201dp"
+        app:srcCompat="@drawable/wall3"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="255dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
