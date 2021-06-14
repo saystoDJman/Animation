@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(username.getText().toString().trim().equals("Dhanush") && password.getText().toString().trim().equals("1234")){
-                    Intent intent =new Intent(getBaseContext(),MainActivity.class);
+                    Intent intent =new Intent(getBaseContext(),StartGameActivity.class);
                     startActivity(intent);
                 }
                 else{
