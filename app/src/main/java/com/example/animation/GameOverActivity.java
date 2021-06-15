@@ -15,15 +15,14 @@ public class GameOverActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_over);
 
         scorelabel = findViewById(R.id.scoreTv);
         highScoreList = findViewById(R.id.playerHighScoreTv);
         playerHighScList = findViewById(R.id.highScoreTv);
 
         getPlHighScore = findViewById(R.id.highScorebtn);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_over);
-
 
         getPlHighScore.setOnClickListener(new View.OnClickListener() {
             @Override
