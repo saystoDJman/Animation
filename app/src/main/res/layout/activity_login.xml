@@ -54,6 +54,7 @@
         android:backgroundTint="#322110"
         android:text="Login"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
