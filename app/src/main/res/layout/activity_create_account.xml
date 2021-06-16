@@ -5,73 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".LoginActivity">
+    tools:context=".CreateAccountActivity">
 
     <EditText
-        android:id="@+id/etvUserName"
+        android:id="@+id/etvCreateUserName"
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="270dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Enter User Name"
-        android:includeFontPadding="false"
         android:inputType="textPersonName"
-        android:textColor="#050505"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etvPassword"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="Enter Password"
-        android:inputType="textPersonName"
-        android:password="true"
         android:textColor="#050505"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etvUserName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="147dp"
+        android:id="@+id/btnCreateAcc"
+        android:layout_width="236dp"
         android:layout_height="61dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="88dp"
         android:backgroundTint="#79C509"
-        android:text="Login"
+        android:text="Create Account"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etvPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etvCreatePass" />
 
-    <TextView
-        android:id="@+id/tvSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="172dp"
-        android:text="@string/underline"
-        android:textColor="#043887"
-        android:textSize="20sp"
+    <EditText
+        android:id="@+id/etvCreatePass"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPersonName"
+        android:textColor="#050505"
+        android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/etvCreateUserName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

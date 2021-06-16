@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Animation</string>
+    <string name="underline"><u>Sign up</u></string>
 </resources>

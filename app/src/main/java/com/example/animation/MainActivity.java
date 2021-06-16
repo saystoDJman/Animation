@@ -138,10 +138,11 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getBaseContext(),s,Toast.LENGTH_SHORT).show();
 
         if(y_pos >=  (float) hole.getTop() && y_pos <= (float) hole.getBottom() ){
-            if(x_pos >= (float) hole.getLeft() && y_pos <= (float) hole.getLeft()){
+            if(x_pos >= (float) hole.getLeft() && x_pos <= (float) hole.getLeft()){
                 Toast.makeText(getBaseContext(),"Game Over",Toast.LENGTH_SHORT).show();
             }
         }
+
 
         //Toast.makeText(getBaseContext(),"X:"+Float.toString(hole_x)+"Y:"+Float.toString(hole_y),Toast.LENGTH_SHORT).show();
 

@@ -2,17 +2,21 @@ package com.example.animation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
     EditText username,password;
+    TextView signup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.etvUserName);
         password = findViewById(R.id.etvPassword);
         login = findViewById(R.id.btnLogin);
+        signup = findViewById(R.id.tvSignUp);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +39,17 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getBaseContext(),CreateAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
 
