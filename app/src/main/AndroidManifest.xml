@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Animation">
-        <activity
-            android:name=".topThreePlayers"
-            android:label="@string/title_activity_top_three_players"
-            android:theme="@style/Theme.Animation.NoActionBar"></activity>
+        <activity android:name=".Top3Players"></activity>
         <activity android:name=".GameOverActivity" />
         <activity android:name=".StartGameActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
