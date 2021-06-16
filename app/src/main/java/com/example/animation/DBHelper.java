@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("Select * from playerTable where userName = ?",new String[]{userName});
         if(cursor.getCount()>0) {
             long result = DB.update("playerTable", contentValues, "userName=?", new String[]{userName});
-            //runs update query to cricket academy table where playerid is given by user
+            //runs update query to playerTable where userName is given by user
             if (result == -1) {
                 return false;
             } else {
@@ -69,12 +69,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getdata(String search_id)
+    public Cursor getdata(String userName)
     {
         //Function to select data from database
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("select * from CricketAcademytable where playerid = ?", new String[]{search_id});
-        //runs select query to select data from cricket academy table where playerid is given by user
+        Cursor cursor = DB.rawQuery("select * from playerTable where userName = ?", new String[]{userName});
+        //runs select query to select data from playerTable  where userName is given by user
         return cursor;
     }
 
@@ -82,16 +82,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getTop3()
     {
-        //Function to all select data from database
+        //Function to get Top3 data from database
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("select  *FROM \n" +
+        Cursor cursor = DB.rawQuery("select  * from \n" +
                                     "    (\n" +
-                                    "    SELECT *FROM emp \n" +
-                                    "    ORDER BY Salary desc\n" +
+                                    "    SELECT * FROM playerTable \n" +
+                                    "    ORDER BY highScore desc\n" +
                                     "    )\n" +
                                     "WHERE rownum <= 3\n" +
-                                    "ORDER BY Salary ;", null);
-        //runs select query to select all data from cricket academy table
+                                    "ORDER BY highScore;", null);
+        //runs select query to Top3 data from academy table
         return cursor;
     }
 
