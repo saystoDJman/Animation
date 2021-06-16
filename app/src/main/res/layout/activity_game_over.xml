@@ -16,6 +16,7 @@
         android:layout_marginEnd="84dp"
         android:backgroundTint="#322110"
         android:text="Get Top Three  Players"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
