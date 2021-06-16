@@ -32,7 +32,7 @@
         android:layout_marginStart="87dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="88dp"
-        android:backgroundTint="#79C509"
+        android:backgroundTint="#322110"
         android:text="Create Account"
         android:textAllCaps="false"
         android:textSize="20sp"

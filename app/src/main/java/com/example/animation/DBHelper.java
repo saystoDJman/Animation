@@ -69,7 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getdata(String userName)
+    public Cursor getPlayer(String userName)
     {
         //Function to select data from database
         SQLiteDatabase DB = this.getWritableDatabase();
@@ -84,14 +84,9 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         //Function to get Top3 data from database
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("select  * from \n" +
-                                    "    (\n" +
-                                    "    SELECT * FROM playerTable \n" +
-                                    "    ORDER BY highScore desc\n" +
-                                    "    )\n" +
-                                    "WHERE rownum <= 3\n" +
-                                    "ORDER BY highScore;", null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM playerTable ORDER BY highScore DESC", null);
         //runs select query to Top3 data from academy table
+
         return cursor;
     }
 

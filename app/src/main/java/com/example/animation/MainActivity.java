@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.Sensor;
@@ -11,11 +12,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -23,9 +26,14 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    String loginPlayer = LoginActivity.loginPlayer;
+    String loginPassword = LoginActivity.loginPassword;
+
     private ImageView ball;
     private ImageView hole;
     private ImageView topWall, bottomWall, leftWall, rightWall;
+
+    TextView score;
 
     private int screenWidth;
     private int screenHeight;
@@ -49,7 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     SensorManager sensorManager;
     Sensor sensor;
+    public int counter = 500;
 
+    public static int finalScore;
+
+    CountDownTimer c;
+
+    DBHelper DB;
 
 
     @Override
@@ -64,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         leftWall = findViewById(R.id.leftWall);
         bottomWall = findViewById(R.id.bottomWall);
         rightWall = findViewById(R.id.rightWall);
+        score = findViewById(R.id.txtScore);
+
+        DB = new DBHelper(this);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -80,6 +97,20 @@ public class MainActivity extends AppCompatActivity {
 
         ball.setX(x_pos);
         ball.setY(y_pos);
+
+        c = new CountDownTimer(500000, 1000){
+            public void onTick(long millisUntilFinished){
+                finalScore = counter;
+                score.setText(String.valueOf(counter));
+                counter--;
+            }
+            public  void onFinish(){
+                Toast.makeText(getBaseContext(),"Game Over",Toast.LENGTH_SHORT).show();
+                Intent gameOverIntent = new Intent(getBaseContext(),GameOverActivity.class);
+                startActivity(gameOverIntent);
+                finish();
+            }
+        }.start();
 
         timer.schedule(new TimerTask() {
             @Override
@@ -136,15 +167,15 @@ public class MainActivity extends AppCompatActivity {
         if(!gameOver){
 
             if(x_value < 0){
-                x_pos += 1.0f;
+                x_pos += 2.0f;
             }else{
-                x_pos -= 1.0f;
+                x_pos -= 2.0f;
             }
 
             if(y_value > 0){
-                y_pos += 1.0f;
+                y_pos += 2.0f;
             }else{
-                y_pos -= 1.0f;
+                y_pos -= 2.0f;
             }
 
             int[] location = new int[2];
@@ -157,6 +188,18 @@ public class MainActivity extends AppCompatActivity {
             if(y_pos >  (float) hole.getTop() && y_pos < (float) hole.getBottom()-60.0f){
                 if(x_pos > (float) hole.getLeft() && x_pos < (float) hole.getRight()-60.0f){
                     gameOver = true;
+                    c.cancel();
+                    Cursor res = DB.getPlayer(loginPlayer);
+                    int oldScore = 0;
+                    if(res.getCount() != 0){
+                        while (res.moveToNext()) {
+                            oldScore = res.getInt(2);
+                        }
+                    }
+
+                    if(oldScore < finalScore){
+                        Boolean checkUpdate = DB.updateScore(loginPlayer,loginPassword,finalScore);
+                    }
                     Toast.makeText(getBaseContext(),"Game Over",Toast.LENGTH_SHORT).show();
                     Intent gameOverIntent = new Intent(getBaseContext(),GameOverActivity.class);
                     startActivity(gameOverIntent);
