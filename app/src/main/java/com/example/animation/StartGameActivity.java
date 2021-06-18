@@ -69,7 +69,7 @@ public class StartGameActivity extends AppCompatActivity {
             @Override
             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                 permissionGranted = true;
-                Toast.makeText(getApplicationContext(),"Map is going to Ready",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Map is going to Ready",Toast.LENGTH_SHORT).show();
             }
 
             @Override

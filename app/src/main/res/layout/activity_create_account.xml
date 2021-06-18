@@ -7,6 +7,15 @@
     android:background="@drawable/background"
     tools:context=".CreateAccountActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <EditText
         android:id="@+id/etvCreateUserName"
         android:layout_width="match_parent"
@@ -27,18 +36,16 @@
 
     <Button
         android:id="@+id/btnCreateAcc"
-        android:layout_width="236dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="88dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:drawable/button_onoff_indicator_off"
         android:backgroundTint="#322110"
         android:text="Create Account"
         android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="italic"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etvCreatePass" />
 

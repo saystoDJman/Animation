@@ -12,7 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="#322110"
+        android:background="@android:drawable/button_onoff_indicator_off"
+        android:backgroundTint="#322110"
         android:gravity="center"
         android:text="Top Three Players"
         android:textColor="#FFFFFF"
@@ -25,10 +26,11 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#322110"
+        android:background="@android:drawable/button_onoff_indicator_off"
+        android:backgroundTint="#322110"
         android:gravity="center"
         android:text="Player Name"
         android:textAlignment="center"
@@ -40,10 +42,11 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#322110"
+        android:background="@android:drawable/button_onoff_indicator_off"
+        android:backgroundTint="#322110"
         android:gravity="center"
         android:text="Score"
         android:textAlignment="center"
@@ -55,61 +58,67 @@
 
     <TextView
         android:id="@+id/firstplayerscore"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/firstplayer"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/secondplayer"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/firstplayer" />
 
     <TextView
         android:id="@+id/secondplayerscore"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/secondplayer"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/firstplayerscore" />
 
     <TextView
         android:id="@+id/thirdplayer"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/secondplayer" />
 
     <TextView
         android:id="@+id/thirdplayerscore"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/thirdplayer"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/secondplayerscore" />
 
     <TextView
         android:id="@+id/firstplayer"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -127,11 +136,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="#322110"
+        android:background="@android:drawable/button_onoff_indicator_off"
+        android:backgroundTint="#322110"
         android:gravity="center"
         android:text="Players on The Map"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thirdplayer" />
@@ -141,6 +152,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="205dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

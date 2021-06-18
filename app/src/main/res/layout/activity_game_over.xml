@@ -12,6 +12,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@android:drawable/button_onoff_indicator_off"
         android:backgroundTint="#322110"
         android:text="Get Top Three  Players"
         android:textColor="#FFFFFF"
@@ -27,6 +28,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="@android:drawable/button_onoff_indicator_off"
         android:backgroundTint="#322110"
         android:text="Main Menu"
         android:textColor="#FFFFFF"
@@ -37,11 +39,12 @@
         app:layout_constraintTop_toBottomOf="@+id/scoreTv" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtGameOver"
+        android:layout_width="400dp"
         android:layout_height="0dp"
-        android:layout_marginTop="100dp"
-        android:background="#322110"
+        android:layout_marginTop="30dp"
+        android:background="@android:drawable/button_onoff_indicator_off"
+        android:backgroundTint="#322110"
         android:text="Game Over"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -55,15 +58,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Your Score:"
         android:textColor="#0E0E0E"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/txtGameOver" />
 
     <TextView
         android:id="@+id/scoreTv"
@@ -74,8 +76,19 @@
         android:paddingStart="10dp"
         android:text="Player score"
         android:textColor="#070707"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/txtGameOver" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="195dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

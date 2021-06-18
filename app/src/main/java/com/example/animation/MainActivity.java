@@ -11,6 +11,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     String loginPlayer = LoginActivity.loginPlayer;
     String loginPassword = LoginActivity.loginPassword;
+    MediaPlayer mediaPlayer;
 
     private ImageView ball;
     private ImageView hole;
@@ -98,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
         ball.setX(x_pos);
         ball.setY(y_pos);
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.music);
+        mediaPlayer.start();
+
         c = new CountDownTimer(500000, 1000){
             public void onTick(long millisUntilFinished){
                 finalScore = counter;
@@ -105,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 counter--;
             }
             public  void onFinish(){
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = null;
                 Toast.makeText(getBaseContext(),"Game Over",Toast.LENGTH_SHORT).show();
                 Intent gameOverIntent = new Intent(getBaseContext(),GameOverActivity.class);
                 startActivity(gameOverIntent);
@@ -125,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }, 0, 20);
 
         String s = "Left: " + Integer.toString(hole.getLeft()) + "Right: " + Integer.toString(hole.getRight()) + "Top: " + Integer.toString(hole.getTop()) +"Bottom: " + Integer.toString(hole.getBottom());
-        Toast.makeText(getBaseContext(),s,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getBaseContext(),s,Toast.LENGTH_SHORT).show();
 
     }
 
@@ -167,15 +175,15 @@ public class MainActivity extends AppCompatActivity {
         if(!gameOver){
 
             if(x_value < 0){
-                x_pos += 2.0f;
+                x_pos += 1.5f;
             }else{
-                x_pos -= 2.0f;
+                x_pos -= 1.5f;
             }
 
             if(y_value > 0){
-                y_pos += 2.0f;
+                y_pos += 1.5f;
             }else{
-                y_pos -= 2.0f;
+                y_pos -= 1.5f;
             }
 
             int[] location = new int[2];
@@ -197,9 +205,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    if(oldScore < finalScore){
+                    if(oldScore > finalScore){
                         Boolean checkUpdate = DB.updateScore(loginPlayer,loginPassword,finalScore);
                     }
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                    mediaPlayer = null;
                     Toast.makeText(getBaseContext(),"Game Over",Toast.LENGTH_SHORT).show();
                     Intent gameOverIntent = new Intent(getBaseContext(),GameOverActivity.class);
                     startActivity(gameOverIntent);
@@ -309,5 +320,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    @Override
+    public void onBackPressed() {
+        mediaPlayer.stop();
+        mediaPlayer.release();
+        mediaPlayer = null;
+        finish();
+    }
+
+
 
 }
